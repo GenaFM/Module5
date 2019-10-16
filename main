@@ -2,19 +2,6 @@ package com.company;
 import java.io.*;
 import java.util.Scanner;
 
-/** THINGS TO RENAME
- * checkuserentry
- * original
- * even
- * odd
- * separator
- * userAnswer
- * counter
- * keyboard
- * userAnswerLength
- * i
- * total
- */
 
 public class Main {
 
@@ -25,22 +12,22 @@ public class Main {
 
 
 
-            String userInput = "", tryAgainAnswer = "";                //?????
+            String userInput = "", tryAgainAnswer = "";     
 
             do {
 
                 File outDataFile = new File("outDataFile.txt"); //Create a .txt file named outDataFile.txt
-                PrintWriter outputDataFile = new PrintWriter(outDataFile); //The function PrintWriter makes changes to the file outDataFile
+                PrintWriter outputDataFile = new PrintWriter(outDataFile); 
 
 
-                System.out.println("Please enter a positive integer: "); //changed
+                System.out.println("Please enter a positive integer: ");
                 userInput = input.nextLine(); //What the user types is labeled userInput
 
                 userInput = checkUserEntry(userInput);
 
 
 
-                inputMethod(userInput, outDataFile); //run the method inputMethod using the parameters userInput
+                inputMethod(userInput, outDataFile); 
                 backwards(userInput, outDataFile);
                 Even(userInput, outDataFile);
                 Odd(userInput, outDataFile);
@@ -64,38 +51,38 @@ public class Main {
         }
 
 
-        public static String checkUserEntry (String userAnswer) { //names a method checkUserEntry that uses the string named userAnswer
+        public static String checkUserEntry (String userAnswer) { 
 
-            int userAnswerLength = userAnswer.length(); //makes a variable named userAnswerLength which is the number of characters in userAnswer
-            int counter = 0;         //???????????
+            int userAnswerLength = userAnswer.length(); 
+            int counter = 0;       
 
             Scanner keyboard = new Scanner(System.in);
-//it looks like I have a response for a blank entry twice, here -
-            while(userAnswerLength == 0) //if the user just presses enter
+
+            while(userAnswerLength == 0) 
             {
-                System.out.println("Please enter a number"); //prompt the user again
-                userAnswer = keyboard.nextLine();  // then userAnswer will be whatever's typed next
-                userAnswerLength = userAnswer.length(); //and userAnswerLength will be the number of characters there
+                System.out.println("Please enter a number"); 
+                userAnswer = keyboard.nextLine();  
+                userAnswerLength = userAnswer.length(); 
                 counter = 0;   //?????????
             }
 
             for (counter = 0; counter < userAnswerLength; counter++)
             {
-//and here
+
                 if(!Character.isDigit(userAnswer.charAt(counter))) //if they typed something other than a digit
                 {
-                    System.out.println("Please enter a number"); //prompt the user again
-                    userAnswer = keyboard.nextLine(); //then userAnswer will be whatever's typed next
-                    userAnswerLength = userAnswer.length(); //and userAnswerLength will be the number of characters there
+                    System.out.println("Please enter a number"); 
+                    userAnswer = keyboard.nextLine(); 
+                    userAnswerLength = userAnswer.length(); 
                     counter = 0; //????????
                 }
-//Do I need to keep the following?
+
                 while (userAnswer.length() == 0) {
                     System.out.println("thats blank. Try again");
                     userAnswer = keyboard.nextLine();
                     userAnswerLength = userAnswer.length();
                 }
-// or can I delete it?
+
             }
             return userAnswer;
         }
@@ -180,8 +167,8 @@ public class Main {
             }
             outputFile.close();
         }
-//        public static void separator (File file) throws IOException {
-  //          FileWriter fw = new FileWriter(file, true);
+        public static void separator (File file) throws IOException {
+            FileWriter fw = new FileWriter(file, true);
     //        PrintWriter outputFile = new PrintWriter(fw);
 //
   //          outputFile.println("*******************");                      //???????????
