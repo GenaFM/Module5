@@ -68,13 +68,6 @@ public class Main {
                 userAnswer = keyboard.nextLine(); //then userAnswer will be whatever's typed next
                 userAnswerLength = userAnswer.length(); //and userAnswerLength will be the number of characters there
             }
-
-            while (userAnswer.length() == 0) {
-                System.out.println("7 thats blank. Try again");
-                userAnswer = keyboard.nextLine();
-                userAnswerLength = userAnswer.length();
-            }
-
         }
         return userAnswer;
     }
