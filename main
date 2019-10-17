@@ -49,7 +49,7 @@ public class Main {
     public static String checkUserEntry(String userAnswer) { //names a method checkUserEntry that uses the string named userAnswer
 
         int userAnswerLength = userAnswer.length(); //makes a variable named userAnswerLength which is the number of characters in userAnswer
-        int counter = 0;         
+        int positionNumber = 0;
 
         Scanner keyboard = new Scanner(System.in);
 
@@ -58,17 +58,15 @@ public class Main {
             System.out.println("Please enter a number"); //prompt the user again
             userAnswer = keyboard.nextLine();  // then userAnswer will be whatever's typed next
             userAnswerLength = userAnswer.length(); //and userAnswerLength will be the number of characters there
-            counter = 0;   //?????????
         }
 
-        for (counter = 0; counter < userAnswerLength; counter++) {
+        for (positionNumber = 0; positionNumber < userAnswerLength; positionNumber++) {
 
-            if (!Character.isDigit(userAnswer.charAt(counter))) //if they typed something other than a digit
+            if (!Character.isDigit(userAnswer.charAt(positionNumber))) //if they typed something other than a digit
             {
                 System.out.println("Please enter a number"); //prompt the user again
                 userAnswer = keyboard.nextLine(); //then userAnswer will be whatever's typed next
                 userAnswerLength = userAnswer.length(); //and userAnswerLength will be the number of characters there
-                counter = 0; 
             }
 
             while (userAnswer.length() == 0) {
