@@ -16,7 +16,7 @@ public class Main {
             PrintWriter outputDataFile = new PrintWriter(outDataFile); //The function PrintWriter makes changes to the file outDataFile
 
 
-            System.out.println("Please enter a positive integer: ");
+            System.out.println("1 Please enter a positive integer: ");
             userInput = input.nextLine(); //What the user types is labeled userInput
 
             userInput = checkUserEntry(userInput);
@@ -26,20 +26,20 @@ public class Main {
             backwards(userInput, outDataFile);
             Even(userInput, outDataFile);
             Odd(userInput, outDataFile);
-//                separator(outDataFile);
 
-            System.out.println("Type y/Y to try again, or type anything else to quit ");
+
+            System.out.println("4 Type y/Y to try again, or type anything else to quit ");
             againAnswer = input.nextLine();
 
 
             if (againAnswer.length() > 1) {
-                System.out.println("Thanks for playing! ");
+                System.out.println("5 Thanks for playing! ");
                 System.exit(0);
             }
 
         } while (againAnswer.toLowerCase().equals("y"));
 
-        System.out.println("Thank you. Goodbye!");
+        System.out.println("6 Thank you. Goodbye!");
 
         System.exit(0);
 
@@ -55,22 +55,22 @@ public class Main {
 
         while (userAnswerLength == 0) //if the user just presses enter
         {
-            System.out.println("Please enter a number"); //prompt the user again
+            System.out.println("2 Please enter a number"); //prompt the user again
             userAnswer = keyboard.nextLine();  // then userAnswer will be whatever's typed next
             userAnswerLength = userAnswer.length(); //and userAnswerLength will be the number of characters there
         }
 
-        for (positionNumber = 0; positionNumber < userAnswerLength; positionNumber++) {
+        for (positionNumber = 0; positionNumber < userAnswerLength; positionNumber++) { //if your position number is lower than the length of the answer, + 1 go again
 
             if (!Character.isDigit(userAnswer.charAt(positionNumber))) //if they typed something other than a digit
             {
-                System.out.println("Please enter a number"); //prompt the user again
+                System.out.println("3 Please enter a number"); //prompt the user again
                 userAnswer = keyboard.nextLine(); //then userAnswer will be whatever's typed next
                 userAnswerLength = userAnswer.length(); //and userAnswerLength will be the number of characters there
             }
 
             while (userAnswer.length() == 0) {
-                System.out.println("thats blank. Try again");
+                System.out.println("7 thats blank. Try again");
                 userAnswer = keyboard.nextLine();
                 userAnswerLength = userAnswer.length();
             }
