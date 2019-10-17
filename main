@@ -134,10 +134,10 @@ public class Main {
         int positionNum;
         String odd = " ";
 
-        for (i = 0; i < total.length(); i++) {
+        for (positionNum = 0; positionNum < total.length(); positionNum++) {
 
-            if (total.charAt(i) % 2 != 0) {
-                odd = odd + total.charAt(i) + " ";
+            if (total.charAt(positionNum) % 2 != 0) {
+                odd = odd + total.charAt(positionNum) + " ";
             }
         }
         if (odd == " ") {
