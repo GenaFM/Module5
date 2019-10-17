@@ -9,7 +9,7 @@ public class Main {
 
 
         String userInput = null;
-        String tryAgainAnswer = null;
+        String againAnswer = null;
 
         do {
             File outDataFile = new File("outDataFile.txt"); //Create a .txt file named outDataFile.txt
@@ -29,15 +29,15 @@ public class Main {
 //                separator(outDataFile);
 
             System.out.println("Type y/Y to try again, or type anything else to quit ");
-            tryAgainAnswer = input.nextLine();
+            againAnswer = input.nextLine();
 
 
-            if (tryAgainAnswer.length() > 1) {
+            if (againAnswer.length() > 1) {
                 System.out.println("Thanks for playing! ");
                 System.exit(0);
             }
 
-        } while (tryAgainAnswer.charAt(0) == 'y' || tryAgainAnswer.charAt(0) == 'Y');
+        } while (againAnswer.toLowerCase().equals("y"));
 
         System.out.println("Thank you. Goodbye!");
 
@@ -49,7 +49,7 @@ public class Main {
     public static String checkUserEntry(String userAnswer) { //names a method checkUserEntry that uses the string named userAnswer
 
         int userAnswerLength = userAnswer.length(); //makes a variable named userAnswerLength which is the number of characters in userAnswer
-        int positionNumber = 0;
+        int positionNumber ;
 
         Scanner keyboard = new Scanner(System.in);
 
