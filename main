@@ -88,11 +88,11 @@ public class Main {
         FileWriter fw = new FileWriter(file, true);
         PrintWriter outputFile = new PrintWriter(fw);
 
-        int i;
+        int positionNum;
         String reversed = " ";
 
-        for (i = total.length() - 1; i >= 0; i--) {
-            reversed = reversed + total.charAt(i) + " ";
+        for (positionNum = total.length() - 1; positionNum >= 0; positionNum--) {
+            reversed = reversed + total.charAt(positionNum) + " ";
         }
         outputFile.println("The Number reversed is:" + reversed);
         System.out.println("The number reversed is:" + reversed);
@@ -104,13 +104,13 @@ public class Main {
         FileWriter fw = new FileWriter(file, true);
         PrintWriter outputFile = new PrintWriter(fw);
 
-        int charPosition = 0;
+        int positionNum = 0;
         String even = " ";
 
-        for (charPosition = 0; charPosition < total.length(); charPosition++) {
+        for (positionNum = 0; positionNum < total.length(); positionNum++) {
 
-            if (total.charAt(charPosition) % 2 == 0) {
-                even = even + total.charAt(charPosition) + " ";
+            if (total.charAt(positionNum) % 2 == 0) {
+                even = even + total.charAt(positionNum) + " ";
             }
         }
         if (even == " ") {
@@ -131,7 +131,7 @@ public class Main {
         FileWriter fw = new FileWriter(file, true);
         PrintWriter outputFile = new PrintWriter(fw);
 
-        int i;
+        int positionNum;
         String odd = " ";
 
         for (i = 0; i < total.length(); i++) {
