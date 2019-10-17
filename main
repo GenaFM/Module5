@@ -68,7 +68,7 @@ public class Main {
                 System.out.println("Please enter a number"); //prompt the user again
                 userAnswer = keyboard.nextLine(); //then userAnswer will be whatever's typed next
                 userAnswerLength = userAnswer.length(); //and userAnswerLength will be the number of characters there
-                counter = 0; //????????
+                counter = 0; 
             }
 
             while (userAnswer.length() == 0) {
