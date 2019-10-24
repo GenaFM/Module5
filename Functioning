@@ -1,0 +1,160 @@
+package com.company;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+public class Main {
+
+
+    public static void main(String[] args) throws IOException {
+        Scanner input = new Scanner(System.in);
+
+
+        String userInput = null;
+        String againAnswer = null;
+
+        do {
+            File outDataFile = new File("outDataFile.txt"); //Create a .txt file named outDataFile.txt
+            PrintWriter outputDataFile = new PrintWriter(outDataFile); //The function PrintWriter makes changes to the file outDataFile
+
+
+            System.out.println("1 Please enter a positive integer: ");
+            userInput = input.nextLine(); //What the user types is labeled userInput
+
+            userInput = checkUserEntry(userInput);
+
+
+            inputMethod(userInput, outDataFile); //run the method inputMethod using the parameters userInput
+            backwards(userInput, outDataFile);
+            Even(userInput, outDataFile);
+            Odd(userInput, outDataFile);
+
+
+            System.out.println("4 Type y/Y to try again, or type anything else to quit ");
+            againAnswer = input.nextLine();
+
+
+            if (againAnswer.length() > 1) {
+                System.out.println("5 Thanks for playing! ");
+                System.exit(0);
+            }
+
+        } while (againAnswer.toLowerCase().equals("y"));
+
+        System.out.println("6 Thank you. Goodbye!");
+
+        System.exit(0);
+
+    }
+
+
+    public static String checkUserEntry(String userAnswer) { //names a method checkUserEntry that uses the string named userAnswer
+
+        int userAnswerLength = userAnswer.length(); //makes a variable named userAnswerLength which is the number of characters in userAnswer
+        int positionNumber;
+
+        Scanner keyboard = new Scanner(System.in);
+
+        while (userAnswerLength == 0) //if the user just presses enter
+        {
+            System.err.println("2 Please enter a number"); //prompt the user again
+            userAnswer = keyboard.nextLine();  // then userAnswer will be whatever's typed next
+            userAnswerLength = userAnswer.length(); //and userAnswerLength will be the number of characters there
+        }
+
+        for (positionNumber = 0; positionNumber < userAnswerLength; positionNumber++) { //if your position number is lower than the length of the answer, + 1 go again
+
+            if (!Character.isDigit(userAnswer.charAt(positionNumber))) //if they typed something other than a digit
+            {
+                System.err.println("3 Please enter a number"); //prompt the user again
+                userAnswer = keyboard.nextLine(); //then userAnswer will be whatever's typed next
+                userAnswerLength = userAnswer.length(); //and userAnswerLength will be the number of characters there
+            }
+        }
+        return userAnswer;
+    }
+
+    public static void inputMethod(String userInput, File file) throws IOException {
+        FileWriter fw = new FileWriter(file, true);
+        PrintWriter outputFile = new PrintWriter(fw);
+
+        System.out.println("The number you gave was " + userInput);
+        outputFile.println("The number you gave was " + userInput);
+
+        outputFile.close();
+
+
+    }
+
+    public static void backwards(String userInput, File file) throws IOException {
+        FileWriter fw = new FileWriter(file, true);
+        PrintWriter outputFile = new PrintWriter(fw);
+
+        int positionNum;
+        String reversed = " ";
+
+        for (positionNum = userInput.length() - 1; positionNum >= 0; positionNum--) {
+            reversed = reversed + userInput.charAt(positionNum) + " ";
+        }
+        outputFile.println("The Number reversed is:" + reversed);
+        System.out.println("The number reversed is:" + reversed);
+        outputFile.close();
+
+    }
+
+    public static void Even(String userInput, File file) throws IOException {
+        FileWriter fw = new FileWriter(file, true);
+        PrintWriter outputFile = new PrintWriter(fw);
+
+        int positionNum = 0;
+        String even = " ";
+
+        for (positionNum = 0; positionNum < userInput.length(); positionNum++) {
+
+            if (userInput.charAt(positionNum) % 2 == 0) {
+                even = even + userInput.charAt(positionNum) + " ";
+            }
+        }
+        if (even == " ") {
+            outputFile.println("there Are No Even Numbers");
+            System.out.println("There Are No Even Numbers");
+        }
+        if (even.length() > 3) {
+            outputFile.println("The Even Numbers Are:" + even);
+            System.out.println("The Even Numbers Are:" + even);
+        } else if (even.length() == 3) {
+            outputFile.println("The Even Number is:" + even);
+            System.out.println("The Even Number is:" + even);
+        }
+        outputFile.close();
+    }
+
+    public static void Odd(String userInput, File file) throws IOException {
+        FileWriter fw = new FileWriter(file, true);
+        PrintWriter outputFile = new PrintWriter(fw);
+
+        int positionNum;
+        String odd = " ";
+
+        for (positionNum = 0; positionNum < userInput.length(); positionNum++) {
+
+            if (userInput.charAt(positionNum) % 2 != 0) {
+                odd = odd + userInput.charAt(positionNum) + " ";
+            }
+        }
+        if (odd == " ") {
+            outputFile.println("There Are No Odd Numbers");
+            System.out.println("There Are No Odd Numbers");
+        }
+        if (odd.length() > 3) {
+            outputFile.println("The Odd Numbers are:" + odd);
+            System.out.println("The Odd Numbers Are:" + odd);
+        } else if (odd.length() == 3) {
+            outputFile.println("The Odd Number is" + odd);
+            System.out.println("The Odd Number is:" + odd);
+        }
+        outputFile.close();
+    }
+}
+
